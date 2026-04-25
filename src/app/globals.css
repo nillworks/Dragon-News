@@ -1,9 +1,21 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
+@theme {
+  --color-primaryColor: #d72050;
+  --color-dark1: #706f6f;
+  --color-dark2: #403f3f;
+}
+
 @layer utilities {
+  p {
+    color: #706f6f;
+  }
+
   .containers {
     max-width: 1440px;
-    margin: 0 auto;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
