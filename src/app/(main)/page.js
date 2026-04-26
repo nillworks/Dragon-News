@@ -1,9 +1,7 @@
-import HomePage from '@/Components/AllPages/HomePage/HomePage';
+import { redirect } from 'next/navigation';
+
+const default_category_id = '01';
 
 export default function Home() {
-  return (
-    <section className="containers">
-      <HomePage />
-    </section>
-  );
+  redirect(`/category/${default_category_id}`);
 }

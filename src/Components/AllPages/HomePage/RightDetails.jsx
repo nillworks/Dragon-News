@@ -101,9 +101,9 @@ const RightDetails = () => {
       </section>
 
       {/* Ad/Promo Banner Section */}
-      <section className="">
+      {/* <section className="">
         <Image src={image4} alt="bg-image" width={400} height={400} />
-      </section>
+      </section> */}
     </aside>
   );
 };
