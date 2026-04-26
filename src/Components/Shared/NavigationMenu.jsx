@@ -1,38 +1,43 @@
-import { CircleUser } from 'lucide-react';
 import Link from 'next/link';
+import NavLink from './NavLink';
+import userIcons from '@/assets/user.png';
+import Image from 'next/image';
 
 const NavigationMenu = () => {
   return (
-    <div className="containers pb-2">
+    <div className="containers py-5">
       <nav className="text-2xl flex items-center justify-between px-3">
         <div></div>
         <div>
           <ul className="flex items-center gap-4">
             <li>
-              <Link className="text-dark1 text-[18px]" href="#">
+              <NavLink className="text-dark1 text-[18px]" href="/">
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="text-dark1 text-[18px]" href="#">
+              <NavLink className="text-dark1 text-[18px]" href="/about">
                 About
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="text-dark1 text-[18px]" href="#">
+              <NavLink className="text-dark1 text-[18px]" href="/career">
                 Career
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
         <div className="flex items-center gap-3">
-          <Link href={`/login`}>
-            <CircleUser />
+          <Link href={`/register`}>
+            <Image width={40} height={40} src={userIcons} alt="icons" />
           </Link>
 
-          <button className="bg-taupe-800 px-4 py-0.5 text-[18px] text-white capitalize">
+          <Link
+            href={`/login`}
+            className="bg-taupe-800 px-4 py-0.5 text-[18px] text-white capitalize"
+          >
             login
-          </button>
+          </Link>
         </div>
       </nav>
     </div>
