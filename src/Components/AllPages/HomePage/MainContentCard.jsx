@@ -2,9 +2,11 @@ import { CiBookmark, CiShare2 } from 'react-icons/ci';
 import { AiFillStar } from 'react-icons/ai';
 import { FaEye } from 'react-icons/fa';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const MainContentCard = ({ data }) => {
   const {
+    _id,
     author = {},
     details,
     image_url,
@@ -14,7 +16,7 @@ const MainContentCard = ({ data }) => {
   } = data || {};
 
   const { name, published_date, img } = author;
-  const { number, badge } = rating;
+  const { number } = rating;
 
   return (
     <div className="max-w-xl mx-auto border border-[#ddd] rounded-md overflow-hidden bg-white shadow-sm">
@@ -63,9 +65,12 @@ const MainContentCard = ({ data }) => {
 
         <p className="text-sm text-gray-600 line-clamp-3 mb-2">{details}</p>
 
-        <button className="text-orange-500 font-semibold text-sm hover:underline">
+        <Link
+          href={`/news/${_id}`}
+          className="text-orange-500 font-semibold text-sm hover:underline"
+        >
           Read More
-        </button>
+        </Link>
       </div>
 
       <hr className="mx-4" />

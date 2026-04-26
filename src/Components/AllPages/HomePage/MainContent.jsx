@@ -3,7 +3,6 @@ import getNewsByCategoryId from './../../../lib/getNewsByCategoryId';
 
 const MainContent = async ({ paramsId }) => {
   const filterCategoryData = await getNewsByCategoryId(paramsId);
-  console.log(filterCategoryData);
 
   return (
     <div className="flex flex-col gap-4">
