@@ -1,8 +1,8 @@
 'use client';
 
+import { authClient } from '@/lib/auth-client';
 import {
   Button,
-  Description,
   FieldError,
   Form,
   Input,
@@ -11,11 +11,20 @@ import {
 } from '@heroui/react';
 
 const RegisterPageUi = () => {
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const registerData = Object.fromEntries(formData.entries());
-    console.log(registerData);
+
+    const { data, error } = await authClient.signUp.email({
+      name: registerData.name, // required
+      email: registerData.email, // required
+      password: registerData.password, // required
+      image: registerData.image,
+      callbackURL: '/',
+    });
+
+    console.log(data, error);
   };
 
   return (
