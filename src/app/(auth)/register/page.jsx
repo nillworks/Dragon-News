@@ -1,5 +1,11 @@
+import RegisterPageUi from '@/Components/AllPages/AuthPage/RegisterPageUi';
+
 const RegisterPage = () => {
-  return <div>RegisterPage</div>;
+  return (
+    <>
+      <RegisterPageUi />
+    </>
+  );
 };
 
 export default RegisterPage;
