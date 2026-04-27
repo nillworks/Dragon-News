@@ -9,22 +9,27 @@ import {
   Label,
   TextField,
 } from '@heroui/react';
+import { useRouter } from 'next/navigation';
 
 const RegisterPageUi = () => {
+  const router = useRouter();
+
   const handleSubmit = async e => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const registerData = Object.fromEntries(formData.entries());
 
     const { data, error } = await authClient.signUp.email({
-      name: registerData.name, // required
-      email: registerData.email, // required
-      password: registerData.password, // required
-      image: registerData.image,
+      name: registerData.name,
+      email: registerData.email,
+      password: registerData.password,
+      image: registerData.photo,
       callbackURL: '/',
     });
 
-    console.log(data, error);
+    if (data) {
+      router.push('/');
+    }
   };
 
   return (

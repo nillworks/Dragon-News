@@ -4,10 +4,11 @@ import NavigationMenu from '@/Components/Shared/NavigationMenu';
 const MainLayout = ({ children }) => {
   return (
     <>
-      <Header />
-      <BreakingNews />
-      <NavigationMenu />
-
+      <div>
+        <Header />
+        <BreakingNews />
+        <NavigationMenu />
+      </div>
       {children}
     </>
   );

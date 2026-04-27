@@ -14,6 +14,7 @@ import {
 } from '@heroui/react';
 
 import { Eye, EyeOff } from 'lucide-react';
+import { authClient } from '@/lib/auth-client';
 
 const LoginPageUi = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,9 +24,14 @@ const LoginPageUi = () => {
 
     //
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const dataObject = Object.fromEntries(formData.entries());
 
-    console.log(data);
+    const { data, error } = await authClient.signIn.email({
+      email: dataObject.email, // required
+      password: dataObject.password, // required
+      rememberMe: true,
+      callbackURL: '/',
+    });
   };
 
   return (
